@@ -32,6 +32,15 @@ function handleSubmit(event) {
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
 
+  if (button.textContent === 'Logout') {
+    form.reset();
+    localStorage.removeItem(LS_KEY);
+    button.textContent = 'Login';
+    email.removeAttribute('readonly');
+    password.removeAttribute('readonly');
+    return;
+  }
+
   if (emailValue === '' || passwordValue === '') {
     return alert('Fill all fields!');
   }
