@@ -76,26 +76,42 @@ if (localStorage.getItem(LS_KEY)) {
 // Якщо значення парне, вирішуй проміс та повертай "even" через 1 секунду.
 // Якщо значення не парне, вирішуй проміс та повертай "odd" через 2 секунди.
 
-const promptValue = prompt('Enter value');
+// const promptValue = prompt('Enter value');
 
-function handlePrompt(promptValue) {
-  return new Promise((resolve, reject) => {
-    const promptValueNum = Number(promptValue);
-    if (isNaN(promptValueNum)) {
-      reject('error');
-    }
-    if (promptValueNum % 2 === 0) {
-      setTimeout(() => {
-        resolve('even');
-      }, 1000);
-    }
-    if (promptValueNum % 2) {
-      setTimeout(() => {
-        resolve('odd');
-      }, 2000);
-    }
-  });
+// function handlePrompt(promptValue) {
+//   return new Promise((resolve, reject) => {
+//     const promptValueNum = Number(promptValue);
+//     if (isNaN(promptValueNum)) {
+//       reject('error');
+//     }
+//     if (promptValueNum % 2 === 0) {
+//       setTimeout(() => {
+//         resolve('even');
+//       }, 1000);
+//     }
+//     if (promptValueNum % 2) {
+//       setTimeout(() => {
+//         resolve('odd');
+//       }, 2000);
+//     }
+//   });
+// }
+// handlePrompt(promptValue)
+//   .then(response => console.log(response))
+//   .catch(error => console.log(error));
+
+
+//   ЗАВДАННЯ 3
+
+// Додай відображення дати і часу в реальному часі
+// <!-- Task 3 -->
+// <p class="date">Current data and time: <span></span></p>
+
+const setDate = document.querySelector('.date span');
+update();
+function update (){
+    setDate.textContent=new Date().toLocaleString("en-US");
+
 }
-handlePrompt(promptValue)
-  .then(response => console.log(response))
-  .catch(error => console.log(error));
+
+setInterval(update, 1000);
