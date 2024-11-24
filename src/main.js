@@ -49,3 +49,12 @@ function handleSubmit(event) {
     alert('Wrong data!');
   }
 }
+
+if (localStorage.getItem(LS_KEY)) {
+  const loginData = JSON.parse(localStorage.getItem(LS_KEY));
+  email.value = loginData.email || '';
+  password.value = loginData.password || '';
+  button.textContent = 'Logout';
+  email.setAttribute('readonly', true);
+  password.setAttribute('readonly', true);
+}
