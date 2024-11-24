@@ -12,61 +12,61 @@
 // Якщо введені дані не збігаються з потрібними даними, викликати аlert і
 // повідомляти про помилку.
 
-const USER_DATA = {
-  email: 'user@mail.com',
-  password: 'secret',
-};
+// const USER_DATA = {
+//   email: 'user@mail.com',
+//   password: 'secret',
+// };
 
-const LS_KEY = 'user-data';
+// const LS_KEY = 'user-data';
 
-const form = document.querySelector('.login-form');
-const email = document.querySelector('[name="email"]');
-const password = document.querySelector('[name="password"]');
-const button = document.querySelector('.login-form button');
+// const form = document.querySelector('.login-form');
+// const email = document.querySelector('[name="email"]');
+// const password = document.querySelector('[name="password"]');
+// const button = document.querySelector('.login-form button');
 
-form.addEventListener('submit', handleSubmit);
+// form.addEventListener('submit', handleSubmit);
 
-function handleSubmit(event) {
-  event.preventDefault();
+// function handleSubmit(event) {
+//   event.preventDefault();
 
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
+//   const emailValue = email.value.trim();
+//   const passwordValue = password.value.trim();
 
-  if (button.textContent === 'Logout') {
-    form.reset();
-    localStorage.removeItem(LS_KEY);
-    button.textContent = 'Login';
-    email.removeAttribute('readonly');
-    password.removeAttribute('readonly');
-    return;
-  }
+//   if (button.textContent === 'Logout') {
+//     form.reset();
+//     localStorage.removeItem(LS_KEY);
+//     button.textContent = 'Login';
+//     email.removeAttribute('readonly');
+//     password.removeAttribute('readonly');
+//     return;
+//   }
 
-  if (emailValue === '' || passwordValue === '') {
-    return alert('Fill all fields!');
-  }
+//   if (emailValue === '' || passwordValue === '') {
+//     return alert('Fill all fields!');
+//   }
 
-  if (emailValue === USER_DATA.email && passwordValue === USER_DATA.password) {
-    localStorage.setItem(
-      LS_KEY,
-      JSON.stringify({ email: emailValue, password: passwordValue })
-    );
+//   if (emailValue === USER_DATA.email && passwordValue === USER_DATA.password) {
+//     localStorage.setItem(
+//       LS_KEY,
+//       JSON.stringify({ email: emailValue, password: passwordValue })
+//     );
 
-    button.textContent = 'Logout';
-    email.setAttribute('readonly', true);
-    password.setAttribute('readonly', true);
-  } else {
-    alert('Wrong data!');
-  }
-}
+//     button.textContent = 'Logout';
+//     email.setAttribute('readonly', true);
+//     password.setAttribute('readonly', true);
+//   } else {
+//     alert('Wrong data!');
+//   }
+// }
 
-if (localStorage.getItem(LS_KEY)) {
-  const loginData = JSON.parse(localStorage.getItem(LS_KEY));
-  email.value = loginData.email || '';
-  password.value = loginData.password || '';
-  button.textContent = 'Logout';
-  email.setAttribute('readonly', true);
-  password.setAttribute('readonly', true);
-}
+// if (localStorage.getItem(LS_KEY)) {
+//   const loginData = JSON.parse(localStorage.getItem(LS_KEY));
+//   email.value = loginData.email || '';
+//   password.value = loginData.password || '';
+//   button.textContent = 'Logout';
+//   email.setAttribute('readonly', true);
+//   password.setAttribute('readonly', true);
+// }
 
 // ЗАВДАННЯ 2
 
@@ -100,18 +100,41 @@ if (localStorage.getItem(LS_KEY)) {
 //   .then(response => console.log(response))
 //   .catch(error => console.log(error));
 
-
 //   ЗАВДАННЯ 3
 
 // Додай відображення дати і часу в реальному часі
 // <!-- Task 3 -->
 // <p class="date">Current data and time: <span></span></p>
 
-const setDate = document.querySelector('.date span');
-update();
-function update (){
-    setDate.textContent=new Date().toLocaleString("en-US");
+// const setDate = document.querySelector('.date span');
+// update();
+// function update (){
+//     setDate.textContent=new Date().toLocaleString("en-US");
 
-}
+// }
 
-setInterval(update, 1000);
+// setInterval(update, 1000);
+
+// ЗАВДАННЯ 4
+
+// Напишіть функцію calculateAge(birthDate), яка приймає дату народження у форматі YYYY-MM-DD і повертає поточний вік.
+// Підказка: Використайте об'єкт Date для обчислення різниці між сьогоднішньою датою і датою народження.
+
+// function calculateAge(birthDate) {
+//   const currentDate = new Date();
+//   const birth = new Date(birthDate);
+//   let difference = currentDate.getFullYear() - birth.getFullYear();
+
+//   const month = currentDate.getMonth() - birth.getMonth();
+//   const day = currentDate.getDate() - birth.getDate();
+
+//   if (month < 0 || (day < 0 && month === 0)) {
+//     difference -= 1;
+//   }
+
+//   return difference;
+// }
+
+// console.log(calculateAge('2005-03-10'));
+// console.log(calculateAge('2005-11-25'));
+// console.log(calculateAge('2005-12-10'));
