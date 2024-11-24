@@ -67,3 +67,35 @@ if (localStorage.getItem(LS_KEY)) {
   email.setAttribute('readonly', true);
   password.setAttribute('readonly', true);
 }
+
+// ЗАВДАННЯ 2
+
+// - Використовуй prompt та повертай значення звідти.
+// - Створи функцію, яка буде набувати значення з prompt і повертатиме проміс.
+// Якщо значення не є числом, відхиляй проміс та логіруй "error".
+// Якщо значення парне, вирішуй проміс та повертай "even" через 1 секунду.
+// Якщо значення не парне, вирішуй проміс та повертай "odd" через 2 секунди.
+
+const promptValue = prompt('Enter value');
+
+function handlePrompt(promptValue) {
+  return new Promise((resolve, reject) => {
+    const promptValueNum = Number(promptValue);
+    if (isNaN(promptValueNum)) {
+      reject('error');
+    }
+    if (promptValueNum % 2 === 0) {
+      setTimeout(() => {
+        resolve('even');
+      }, 1000);
+    }
+    if (promptValueNum % 2) {
+      setTimeout(() => {
+        resolve('odd');
+      }, 2000);
+    }
+  });
+}
+handlePrompt(promptValue)
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
