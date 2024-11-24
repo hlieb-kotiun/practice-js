@@ -138,3 +138,37 @@
 // console.log(calculateAge('2005-03-10'));
 // console.log(calculateAge('2005-11-25'));
 // console.log(calculateAge('2005-12-10'));
+
+// ЗАДАЧА 3
+
+// Зробити перемикач теми. Зберігати тему у локальному сховище.
+// При перезавантаженні сторінки перевіряти сховище та ставити тему, яка там вказана.
+// Додати класи для змін тем
+
+const input = document.querySelector('.checkbox');
+
+const STYLE_PAGE = 'theme';
+
+input.addEventListener('change', changeStyle);
+
+function changeStyle(event) {
+  if (event.target.checked) {
+    document.body.classList.add('dark');
+
+    localStorage.setItem(STYLE_PAGE, 'dark');
+
+    document.body.classList.remove('light');
+  } else {
+    document.body.classList.add('light');
+
+    localStorage.setItem(STYLE_PAGE, 'light');
+
+    document.body.classList.remove('dark');
+  }
+}
+
+if (localStorage.getItem(STYLE_PAGE) === 'dark') {
+  document.body.classList.add('dark');
+  document.body.classList.remove('light');
+  input.checked = true;
+}

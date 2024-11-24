@@ -7,7 +7,7 @@
     <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body class="light">
     <!-- ЗАДАЧА 1 -->
     <h2>Задача 1</h2>
     <form class="login-form">
@@ -17,6 +17,12 @@
     </form>
 
     <p class="date">Current data and time: <span></span></p>
+
+    <div class="checkbox-thumb">
+      <input type="checkbox" id="checkbox" class="checkbox" />
+      <label class="theme-toggle" for="checkbox"></label>
+      <div class="checkbox-circle"></div>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
